@@ -1,8 +1,11 @@
+import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
-import SidebarItems from "./SidebarItems";import { UserButton } from "@clerk/nextjs";
+import { getUserAuth } from "@/integrations/auth";
+import { AuthSession } from "@/integrations/auth/types";
 
-import { AuthSession, getUserAuth } from "@/lib/auth/utils";
+import SidebarItems from "./SidebarItems";
+
 
 const Sidebar = async () => {
   const session = await getUserAuth();

@@ -1,12 +1,11 @@
 "use client";
 
+import { LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { LucideIcon } from "lucide-react";
-
-import { cn } from "@/lib/utils";
-import { defaultLinks, additionalLinks } from "@/config/nav";
+import { additionalLinks,defaultLinks } from "@/constants/nav";
+import { cn } from "@/utils";
 
 export interface SidebarLink {
   title: string;
@@ -72,9 +71,8 @@ const SidebarLink = ({
   return (
     <Link
       href={link.href}
-      className={`group transition-colors p-2 inline-block hover:bg-popover hover:text-primary text-muted-foreground text-xs hover:shadow rounded-md w-full${
-        active ? " text-primary font-semibold" : ""
-      }`}
+      className={`group transition-colors p-2 inline-block hover:bg-popover hover:text-primary text-muted-foreground 
+        text-xs hover:shadow rounded-md w-full${active ? " text-primary font-semibold" : ""}`}
     >
       <div className="flex items-center">
         <div
