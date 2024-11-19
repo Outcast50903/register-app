@@ -16,9 +16,7 @@ interface AttendanceCardProps {
 const AttendanceCard: FC<AttendanceCardProps> = ({ 
   session
 }) => {
-  console.log("🚀 ~ session:", session)
   const { handleSubmit, isLoading, isSuccess } = useAttendance();
-  console.log("🚀 ~ isSuccess:", isSuccess)
 
   return (
     <Card className="w-full max-w-md">
