@@ -16,7 +16,7 @@ export const insertAttendancesParams = baseSchema
       .min(3, {
         message: "must be at least 3 characters long",
       })
-      .max(15, {
+      .max(50, {
         message: "cannot be more than 15 characters long",
       }),
     attendancesDate: z.date(),

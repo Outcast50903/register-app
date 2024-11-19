@@ -1,9 +1,9 @@
 import { router } from "@/server/trpc";
 
-import { computersRouter } from "./computers";
+import { attendancesRouter } from "./attendances.router";
 
 export const appRouter = router({
-  computers: computersRouter,
+  attendances: attendancesRouter,
 });
 
 export type AppRouter = typeof appRouter;
