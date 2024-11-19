@@ -10,6 +10,7 @@ import { type TRPCErrorResponse } from "@trpc/server/rpc";
 import { cookies } from "next/headers";
 import SuperJSON from "superjson";
 
+import { env } from "@/env.mjs";
 import { appRouter } from "@/server/routers/_app";
 
 import "server-only";
@@ -30,7 +31,7 @@ export const api = createTRPCProxyClient<typeof appRouter>({
   links: [
     loggerLink({
       enabled: (op) =>
-        process.env.NODE_ENV === "development" ||
+        env.NODE_ENV === "development" ||
         (op.direction === "down" && op.result instanceof Error),
     }),
     /**
