@@ -3,7 +3,6 @@ import { drizzle } from "drizzle-orm/neon-http";
 import { migrate } from "drizzle-orm/neon-http/migrator";
 
 import * as schema from "@/db/schema";
-import { env } from "@/env.mjs";
 
 import { generateFetchEndpoint } from "./utils";
 
@@ -13,8 +12,10 @@ const runMigrate = async () => {
   neonConfig.fetchEndpoint = (host) => generateFetchEndpoint(host);
 
   console.log("⏳ Connecting to database...");
-  console.log("🚀 ~ process.env.DATABASE_URL:", env.DATABASE_URL);
-  const sql: NeonQueryFunction<boolean, boolean> = neon(env.DATABASE_URL!);
+  console.log("🚀 ~ process.env.DATABASE_URL:", process.env.DATABASE_URL);
+  const sql: NeonQueryFunction<boolean, boolean> = neon(
+    process.env.DATABASE_URL!
+  );
 
   console.log("⏳ Creating database client...");
   const db = drizzle(sql, { schema });
