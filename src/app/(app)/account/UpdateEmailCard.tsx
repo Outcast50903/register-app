@@ -9,7 +9,6 @@ import { AccountCard, AccountCardBody,AccountCardFooter } from "./AccountCard";
 
 export default function UpdateEmailCard({ email }: { email: string }) {
   const [isPending, startTransition] = useTransition();
-  console.log("🚀 ~ UpdateEmailCard ~ isPending:", isPending)
   const router = useRouter();
 
   const handleSubmit = async (event: React.SyntheticEvent) => {

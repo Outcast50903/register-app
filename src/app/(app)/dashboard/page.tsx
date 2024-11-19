@@ -5,7 +5,6 @@ import { getUserAuth } from "@/integrations/auth";
 
 export default async function Home() {
   const userAuth = await getUserAuth();
-  console.log("🚀 ~ Home ~ userAuth:", userAuth)
   return (
     <main className="space-y-6">
       <Link href="/account">

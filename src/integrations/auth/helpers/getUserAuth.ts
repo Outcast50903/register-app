@@ -4,8 +4,6 @@ import { AuthSession } from "../types";
 
 export const getUserAuth = async () => {
   const { userId, sessionClaims } = await auth();
-  console.log("🚀 ~ getUserAuth ~ sessionClaims:", sessionClaims);
-  console.log("🚀 ~ getUserAuth ~ userId:", userId);
   if (userId) {
     return {
       session: {

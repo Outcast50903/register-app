@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
 import { Toaster } from "@/components/ui/sonner";
 import { checkAuth } from "@/integrations/auth";
-import TrpcProvider from "@/trpc/Provider";
+import TrpcProvider from "@/server/trpc/Provider";
 export default async function AppLayout({
   children,
 }: {

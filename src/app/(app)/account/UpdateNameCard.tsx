@@ -10,7 +10,6 @@ import { AccountCard, AccountCardBody,AccountCardFooter } from "./AccountCard";
 
 export default function UpdateNameCard({ name }: { name: string }) {
   const [isPending, startTransition] = useTransition();
-  console.log("🚀 ~ UpdateNameCard ~ isPending:", isPending)
   const router = useRouter();
   const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
