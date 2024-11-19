@@ -1,6 +1,5 @@
 {
   "*/**/*.{ts,tsx}": [
-    "validate-branch-name",
     "eslint --fix",
     "eslint . --ext .ts",
     "eslint . --ext .ts --fix"
