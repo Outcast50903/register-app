@@ -5,8 +5,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { loggerLink, unstable_httpBatchStreamLink } from "@trpc/client";
 import SuperJSON from "superjson";
 
-import { env } from "@/env.mjs";
-
 import { trpc } from "./client";
 import { getUrl } from "./utils";
 
@@ -24,7 +22,7 @@ export default function TrpcProvider({
       links: [
         loggerLink({
           enabled: (op) =>
-            env.NODE_ENV === "development" ||
+            process.env.NODE_ENV === "development" ||
             (op.direction === "down" && op.result instanceof Error),
         }),
         unstable_httpBatchStreamLink({
