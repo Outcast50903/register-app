@@ -1,10 +1,11 @@
-import { checkAuth } from "@/lib/auth/utils";
-import { Toaster } from "@/components/ui/sonner";
+import { ClerkProvider } from "@clerk/nextjs";
+import { cookies } from "next/headers";
+
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
-import { ClerkProvider } from "@clerk/nextjs";
-import TrpcProvider from "@/lib/trpc/Provider";
-import { cookies } from "next/headers";
+import { Toaster } from "@/components/ui/sonner";
+import { checkAuth } from "@/integrations/auth";
+import TrpcProvider from "@/trpc/Provider";
 export default async function AppLayout({
   children,
 }: {

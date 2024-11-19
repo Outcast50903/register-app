@@ -1,13 +1,16 @@
 "use client";
-import { AccountCard, AccountCardFooter, AccountCardBody } from "./AccountCard";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { toast } from "sonner";
 import { useTransition } from "react";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+
+import { AccountCard, AccountCardBody,AccountCardFooter } from "./AccountCard";
 
 export default function UpdateNameCard({ name }: { name: string }) {
   const [isPending, startTransition] = useTransition();
+  console.log("🚀 ~ UpdateNameCard ~ isPending:", isPending)
   const router = useRouter();
   const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();

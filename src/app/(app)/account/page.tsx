@@ -1,5 +1,6 @@
+import { checkAuth, getUserAuth } from "@/integrations/auth";
+
 import UserSettings from "./UserSettings";
-import { checkAuth, getUserAuth } from "@/lib/auth/utils";
 
 export default async function Account() {
   await checkAuth();

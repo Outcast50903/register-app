@@ -1,7 +1,8 @@
 "use client";
-import UpdateNameCard from "./UpdateNameCard";
+import { AuthSession } from "@/integrations/auth";
+
 import UpdateEmailCard from "./UpdateEmailCard";
-import { AuthSession } from "@/lib/auth/utils";
+import UpdateNameCard from "./UpdateNameCard";
 
 export default function UserSettings({
   session,

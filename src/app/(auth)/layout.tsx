@@ -1,6 +1,7 @@
-import { getUserAuth } from "@/lib/auth/utils";
-import { redirect } from "next/navigation";
 import { ClerkProvider } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
+
+import { getUserAuth } from "@/integrations/auth";
 
 export default async function AuthLayout({
   children,
