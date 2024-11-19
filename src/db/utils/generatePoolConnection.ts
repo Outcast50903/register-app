@@ -18,7 +18,7 @@ export const generatePoolConnection = (): PoolConnection => {
       env.NODE_ENV === "development" ? `${host}:${4444}/v2` : `${host}/v2`;
   }
 
-  const client = new Pool({ connectionString: env.DATABASE_URL });
+  const client = new Pool({ connectionString: process.env.DATABASE_URL });
 
   return drizzle(client, { schema });
 };
