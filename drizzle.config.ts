@@ -1,11 +1,21 @@
-import type { Config } from "drizzle-kit";
-import { env } from "@/lib/env.mjs";
+import { env } from "@/env.mjs";
+import { defineConfig } from "drizzle-kit";
 
-export default {
-  schema: "./src/lib/db/schema",
+export default defineConfig({
   dialect: "postgresql",
-  out: "./src/lib/db/migrations",
+  schema: "./src/db/schema",
+  out: "./src/db/migrations",
   dbCredentials: {
-    url: env.DATABASE_URL,
-  }
-} satisfies Config;
+    url: env.DATABASE_URL!,
+  },
+  tablesFilter: ["app_*"],
+  entities: {
+    roles: {
+      provider: "neon",
+    },
+  },
+  casing: "snake_case",
+  extensionsFilters: ["postgis"],
+  verbose: true,
+  strict: true,
+});
