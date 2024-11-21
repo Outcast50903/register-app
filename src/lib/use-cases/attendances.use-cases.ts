@@ -1,5 +1,6 @@
 import * as trpc from "@trpc/server";
 
+import { sendEmailTask } from "@/integrations/trigger/sendEmailTask";
 import { sendWhatsAppMessageTask } from "@/integrations/trigger/sendWhatsAppMessageTask";
 import { createAttendancesDataAccess } from "@/lib/data-access/attendances.data-access";
 import { NewAttendanceParams } from "@/lib/types/attendances.type";
@@ -25,6 +26,11 @@ export const createAttendancesUseCase = async ({
     }
 
     sendWhatsAppMessageTask.trigger();
+    sendEmailTask.trigger({
+      attendee_name: attendance.name,
+      event_date: attendance.attendancesDate,
+      email: "dgarciavallejos@gmail.com",
+    });
 
     return attendance;
   } catch (err) {
