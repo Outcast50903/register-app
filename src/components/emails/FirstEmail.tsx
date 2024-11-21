@@ -1,27 +1,36 @@
 import * as React from "react";
 
 interface EmailTemplateProps {
-  firstName: string;
+  event_date: string;
+  attendee_name: string;
 }
 
 export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
-  firstName,
+  event_date,
+  attendee_name
 }) => (
-  <div>
-    <h1>Welcome, {firstName}!</h1>
-    <p>
-      Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim
-      labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet.
-      Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum
-      Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident.
-      Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex
-      occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat
-      officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in
-      Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non
-      excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco
-      ut ea consectetur et est culpa et culpa duis.
-    </p>
-    <hr />
-    <p>Sent with help from Resend and Kirimase 😊</p>
-  </div>
+  <body style={{ fontFamily: "Arial, sans-serif", lineHeight: 1.6, margin: 0, padding: 0, backgroundColor: "#f4f4f4" }}>
+    <table role="presentation" width="100%" cellSpacing="0" cellPadding="0" style={{ border: 0 }}>
+      <tr>
+        <td style={{ padding: "20px 0", textAlign: "center", backgroundColor: "#007bff" }}>
+          <h1 style={{ color: "#ffffff", margin: 0 }}>Event Attendance Registration</h1>
+        </td>
+      </tr>
+      <tr>
+        <td style={{ padding: "40px 20px", backgroundColor: "#ffffff" }}>
+          <table role="presentation" width="100%" cellSpacing="0" cellPadding="0" style={{ border: 0 }}>
+            <tr>
+              <td>
+                <h2 style={{ color: "#333333", marginTop: 0 }}>Dear {attendee_name},</h2>
+                <p style={{ marginBottom: "20px" }}>
+                  We hope this email finds you well. An attendance has been recorded on {event_date}.
+                </p>
+                <p>We look forward to seeing you!</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
 );
