@@ -12,7 +12,6 @@ const runMigrate = async () => {
   neonConfig.fetchEndpoint = (host) => generateFetchEndpoint(host);
 
   console.log("⏳ Connecting to database...");
-  console.log("🚀 ~ process.env.DATABASE_URL:", process.env.DATABASE_URL);
   const sql: NeonQueryFunction<boolean, boolean> = neon(
     process.env.DATABASE_URL!
   );
